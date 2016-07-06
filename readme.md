@@ -1,5 +1,5 @@
 # rls-api
-## PHP Implementation
+#### PHP Implementation
 
 This is the un-official PHP client library for the RocketLeagueStats API.
 
