@@ -1,0 +1,5 @@
+suites:
+  stats_suite:
+    namespace: RocketLeagueStats
+    psr4_prefix: RocketLeagueStats
+    formatter.name: pretty
