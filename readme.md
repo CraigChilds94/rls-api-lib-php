@@ -1,0 +1,11 @@
+# rls-api
+## PHP Implementation
+
+This is the official NodeJS client library for the RocketLeagueStats API.
+
+### Installation
+`composer require craigchilds/rls-api`
+
+### Links
+ * [Example](https://github.com/CraigChilds94/rls-api-lib-php/example.php)
+ * [API Documentation](http://documentation.rocketleaguestats.com/)
