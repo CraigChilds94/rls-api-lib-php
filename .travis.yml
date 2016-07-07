@@ -8,6 +8,7 @@ php:
   - nightly
 
 before_script:
+  - touch spec/.env
   - composer self-update
 
 install:
