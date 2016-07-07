@@ -11,11 +11,14 @@
         }
     ],
     "autoload": {
-        "psr-0": { "": "tests/" },
         "psr-4": { "RocketLeagueStats\\": "src/" }
     },
+    "autoload-dev": {
+        "psr-0": { "": "tests/" }
+    },
     "require-dev": {
-        "phpspec/phpspec": "~2.0"
+        "phpspec/phpspec": "~2.0",
+        "vlucas/phpdotenv": "^2.3"
     },
     "config": {
         "bin-dir": "bin"

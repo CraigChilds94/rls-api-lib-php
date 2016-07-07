@@ -17,10 +17,10 @@ class Stats extends Api
      * Get all of the supported platforms, for
      * this API and the game.
      * 
-     * @return RocketLeagueStats\Data\Collection
+     * @return RocketLeagueStats\Http\ResponseData
      */
     public function platforms()
     {
-        return $this->get('/data/platforms')->toCollection();
+        return $this->get('/data/platforms');
     }
 }

@@ -15,16 +15,6 @@ use RocketLeagueStats\Http\CallDispatcher;
 trait MakesRequests
 {   
     /**
-     * Set the url for the request
-     * 
-     * @param string $url
-     */
-    public function setRequestUrl($url)
-    {
-        $this->requestUrl = $url;
-    }
-
-    /**
      * Make a request to a url, with a specific endpoint
      * and potentially some data.
      * 
@@ -35,8 +25,12 @@ trait MakesRequests
      */
     public function request($method, $endpoint, $data = [])
     {
-        $dispatcher = new CallDispatcher(new Request(), new Response());
-        return $dispatcher->handle($method, $this->requestUrl . $endpoint, $data);
+        $headers = $this->getHeaders();
+        $url = $this->getRequestUrl($endpoint);
+
+        $dispatcher = new CallDispatcher(new Request($headers), new Response());
+
+        return $dispatcher->handle($method, $url, $data);
     }  
 
     /**

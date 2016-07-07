@@ -25,11 +25,14 @@ class Request implements RequestInterface
 
     /**
      * Create a new Guzzle client to
-     * make our requests with.
+     * make our requests with. Set global
+     * client wide headers.
+     *
+     * @param array $headers
      */
-    public function __construct()
+    public function __construct($headers = [])
     {
-        $this->client = new Client();
+        $this->client = new Client(['headers' => $headers]);
     }
 
     /**
@@ -45,9 +48,8 @@ class Request implements RequestInterface
      * @throws UnauthorizedException
      */
     public function make($method = 'GET', $url, $data = [])
-    {
+    {   
         try {
-            
             $response = $this->client->request($method, $url, $data);
             
             return [

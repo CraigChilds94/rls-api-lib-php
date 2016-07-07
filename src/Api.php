@@ -3,6 +3,7 @@
 namespace RocketLeagueStats;
 
 use RocketLeagueStats\Traits\MakesRequests;
+use RocketLeagueStats\Contracts\MakesRequestsContract;
 
 /**
  * Handle the base Api functionality, and
@@ -12,7 +13,7 @@ use RocketLeagueStats\Traits\MakesRequests;
  *
  * @author Craig Childs <childscraig17@gmail.com>
  */
-class Api
+class Api implements MakesRequestsContract
 {
     use MakesRequests;
 
@@ -22,7 +23,7 @@ class Api
      * 
      * @var array
      */
-    protected $apiKey;
+    protected $apiKey = '';
 
     /**
      * The url for the Api
@@ -40,6 +41,14 @@ class Api
     protected $options;
 
     /**
+     * The headers will be passed to
+     * the request.
+     * 
+     * @var array
+     */
+    protected $headers = [];
+
+    /**
      * Construct the Stats object with provided options, 
      * or try to load them in from the ENV.
      * 
@@ -49,7 +58,51 @@ class Api
     {
         $this->options = $this->extractOptions($options);
 
-        $this->setRequestUrl($this->apiUrl);
+        $this->setHeaders([
+            'Authorization' => 'Bearer ' . $this->apiKey
+        ]);
+    }
+
+    /**
+     * Set the url for the request
+     * 
+     * @param string $url
+     */
+    public function setRequestUrl(string $url)
+    {
+        $this->apiUrl = $url;
+    }
+
+    /**
+     * Set the headers
+     * 
+     * @param string $url
+     */
+    public function setHeaders(array $headers)
+    {
+        $this->headers = $headers;
+    }
+
+    /**
+     * Gets the The headers will be passed 
+     * to the request.
+     *
+     * @return array
+     */
+    public function getHeaders()
+    {
+        return $this->headers;
+    }
+
+    /**
+     * Gets the The url for the Api.
+     *
+     * @param  string $path
+     * @return string
+     */
+    public function getRequestUrl($path = '')
+    {
+        return $this->apiUrl . $path;
     }
 
     /**

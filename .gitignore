@@ -1,6 +1,7 @@
 # Files
 .DS_Store
 composer.phar
+.env
 
 # Folders
 .phpintel/
