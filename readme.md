@@ -42,7 +42,7 @@ $api = new Api([
     'api_key' => 'your_api_key_here'
 ]);
 
-$results = $api->search(Platform::PS4)->toCollection();
+$results = $api->search('UserNameHere')->toCollection();
 ```
 
 ### Links
