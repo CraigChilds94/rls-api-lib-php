@@ -32,7 +32,7 @@ class Request implements RequestInterface
      */
     public function __construct($headers = [])
     {
-        $this->client = new Client(['headers' => $headers]);
+        $this->client = new Client(['headers' => $headers, 'verify' => false]);
     }
 
     /**
