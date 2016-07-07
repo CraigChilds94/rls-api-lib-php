@@ -12,7 +12,7 @@ composer require craigchilds/rls-api
 Here are a few examples of how you can use the api to fetch different types of data.
 
 ##### Fetching a list of the playlists
-```
+```php
 use RocketLeagueStats\Stats as Api;
 
 $api = new Api([
