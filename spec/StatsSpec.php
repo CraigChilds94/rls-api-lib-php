@@ -15,9 +15,10 @@ class StatsSpec extends ObjectBehavior
 {
     function let()
     {
-        $dotenv = new Dotenv(__DIR__);
-        $dotenv->load();
-        $dotenv->required('RLS_API_KEY');
+        try {
+            $dotenv = new Dotenv(__DIR__);
+            $dotenv->load();
+        } catch(Exception $e) {}
     }
 
     function it_is_initializable()
