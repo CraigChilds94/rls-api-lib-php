@@ -17,7 +17,7 @@ interface MakesRequestsContract
      * 
      * @param array $headers
      */
-    public function setHeaders(array $headers);
+    public function setHeaders(\array $headers);
 
     /**
      * A method stub for retrieving the request headers.
@@ -31,7 +31,7 @@ interface MakesRequestsContract
      * 
      * @param string $url
      */
-    public function setRequestUrl(string $url);
+    public function setRequestUrl(\string $url);
 
     /**
      * Method stub for fetching the url

@@ -70,7 +70,7 @@ class Api implements MakesRequestsContract
      * 
      * @param string $url
      */
-    public function setRequestUrl(string $url)
+    public function setRequestUrl(\string $url)
     {
         $this->apiUrl = $url;
     }
@@ -80,7 +80,7 @@ class Api implements MakesRequestsContract
      * 
      * @param string $url
      */
-    public function setHeaders(array $headers)
+    public function setHeaders(\array $headers)
     {
         $this->headers = $headers;
     }

@@ -33,7 +33,7 @@ class ResponseData
      * @param int   $code
      * @param mixed $body
      */
-    public function __construct(int $code, $body)
+    public function __construct($code, $body)
     {
         $this->code = $code;
         $this->body = $body;
