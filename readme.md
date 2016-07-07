@@ -23,7 +23,7 @@ $playlists = $api->playlists()->toCollection();
 ```
 
 ##### Fetching a player by platform & name
-```
+```php
 use RocketLeagueStats\Stats as Api;
 use RocketLeagueStats\Data\Platform;
 
@@ -35,7 +35,7 @@ $player = $api->player(Platform::PS4, 'PS4_UserNameHere');
 ```
 
 ##### Searching for a player on any platform
-```
+```php
 use RocketLeagueStats\Stats as Api;
 
 $api = new Api([
