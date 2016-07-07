@@ -1,4 +1,5 @@
 # rls-api (PHP Implementation)
+[![Build Status](https://travis-ci.org/CraigChilds94/rls-api-lib-php.svg?branch=master)](https://travis-ci.org/CraigChilds94/rls-api-lib-php)
 
 This is the un-official PHP client library for the RocketLeagueStats API.
 
