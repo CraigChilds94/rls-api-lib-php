@@ -32,7 +32,7 @@ class Api implements MakesRequestsContract
      * 
      * @var string
      */
-    protected $apiUrl = 'https://api.rocketleaguestats.com/v1';
+    protected $apiUrl = 'http://api.rocketleaguestats.com/v1';
 
     /**
      * The options that were passed into
