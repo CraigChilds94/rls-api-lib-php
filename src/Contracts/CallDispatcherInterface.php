@@ -13,9 +13,10 @@ interface CallDispatcherInterface
     /**
      * The method stub to handle the call dispatch
      * 
+     * @param  string $method
      * @param  string $url
      * @param  array  $data
      * @return Response
      */
-    public function handle($url, $data);
+    public function handle($method, $url, $data);
 }

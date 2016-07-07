@@ -72,5 +72,7 @@ class Request implements RequestInterface
                 throw new NotFoundException;
             }
         }
+
+        return false;
     }
 }

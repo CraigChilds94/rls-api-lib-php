@@ -2,6 +2,8 @@
 
 namespace RocketLeagueStats;
 
+use RocketLeagueStats\Data\Platform;
+use RocketLeagueStats\Data\Collection;
 use RocketLeagueStats\Traits\MakesRequests;
 use RocketLeagueStats\Contracts\MakesRequestsContract;
 
@@ -146,5 +148,31 @@ class Api implements MakesRequestsContract
         $value = getenv($key);
 
         return $value ? $value : $fallback;
+    }
+
+    /**
+     * Map a player collection to the appropriate 
+     * keys.
+     * 
+     * @param  RocketLeagueStats\Data\Collection $players
+     * @return RocketLeagueStats\Data\Collection
+     */
+    protected function mapPlayerCollectionKeys(Collection $players)
+    {
+        return $players->map(function($player) {
+
+            $user = $player['player'];
+            $platform = $player['platform'];
+
+            if ($platform instanceof Platform) {
+                $platform = $platform->getId();
+            }
+
+            return [
+                'uniqueId'   => $user, 
+                'platformId' => $platform
+            ];
+
+        });
     }
 }

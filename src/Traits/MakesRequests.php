@@ -42,7 +42,8 @@ trait MakesRequests
      */
     public function get($endpoint, $data = []) 
     {
-        return $this->request('GET', $endpoint, $data);
+        $query = ['query' => $data];
+        return $this->request('GET', $endpoint, $query);
     }
 
     /**
@@ -54,6 +55,7 @@ trait MakesRequests
      */
     public function post($endpoint, $data = []) 
     {
-        return $this->request('POST', $endpoint, $data);
+        $body = ['json' => $data];
+        return $this->request('POST', $endpoint, $body);
     }
 }

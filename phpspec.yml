@@ -3,3 +3,4 @@ suites:
     namespace: RocketLeagueStats
     psr4_prefix: RocketLeagueStats
     formatter.name: pretty
+    code_generation: false

@@ -3,6 +3,7 @@
 namespace RocketLeagueStats\Http;
 
 use RocketLeagueStats\Data\Collection;
+use RocketLeagueStats\Exceptions\CannotCollectException;
 
 /**
  * Represent a response's data
@@ -30,9 +31,9 @@ class ResponseData
      * Construct a new object with some data
      *
      * @param int   $code
-     * @param array $body
+     * @param mixed $body
      */
-    public function __construct(int $code, array $body)
+    public function __construct(int $code, $body)
     {
         $this->code = $code;
         $this->body = $body;
@@ -46,6 +47,10 @@ class ResponseData
      */
     public function toCollection()
     {
+        if (!is_array($this->body)) {
+            throw new CannotCollectException;
+        }
+
         return new Collection($this->body);
     }
 
@@ -56,7 +61,7 @@ class ResponseData
      */
     public function getData()
     {
-        return $this->response;
+        return $this->body;
     }
 
     /**
