@@ -4,7 +4,9 @@ namespace RocketLeagueStats;
 
 use RocketLeagueStats\Api;
 use RocketLeagueStats\Data\Platform;
+use RocketLeagueStats\Data\Playlist;
 use RocketLeagueStats\Data\Collection;
+use RocketLeagueStats\Exceptions\PlaylistMustBeRankedException;
 
 /**
  * The primary class for this api, it makes the 
@@ -106,9 +108,14 @@ class Stats extends Api
      * 
      * @param  integer $playlistId
      * @return RocketLeagueStats\Http\ResponseData
+     * @throws RocketLeagueStats\Exceptions\PlaylistMustBeRankedException
      */
     public function rankedLeaderboard($playlistId)
     {
+        if (!Playlist::isRanked($playlistId)) {
+            throw new PlaylistMustBeRankedException;
+        }
+
         return $this->get('/leaderboard/ranked', [
             'playlist_id' => $playlistId,
         ]);

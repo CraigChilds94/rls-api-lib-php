@@ -60,6 +60,7 @@ class Request implements RequestInterface
         } catch (ClientException $e) {
             $code = $e->getResponse()->getStatusCode();
 
+
             if ($code == '400') {
                 throw new BadRequestException;
             }

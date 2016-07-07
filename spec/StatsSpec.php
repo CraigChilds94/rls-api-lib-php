@@ -115,8 +115,18 @@ class StatsSpec extends ObjectBehavior
             'api_key' => getenv('RLS_API_KEY')
         ]);
 
-        $playlist = Playlist::DOUBLES;
+        $playlist = Playlist::RANKED_DOUBLES;
         $this->rankedLeaderboard($playlist)->shouldReturnAnInstanceOf('RocketLeagueStats\Http\ResponseData');
+    }
+
+    function it_should_grab_top_100_ranked_leaderboard_with_non_ranked_playlist()
+    {
+        $this->beConstructedWith([
+            'api_key' => getenv('RLS_API_KEY')
+        ]);
+
+        $playlist = Playlist::DOUBLES;
+        $this->shouldThrow('RocketLeagueStats\Exceptions\PlaylistMustBeRankedException')->during('rankedLeaderboard', [$playlist]);
     }
 
     function it_should_grab_top_100_stat_leaderboard()
