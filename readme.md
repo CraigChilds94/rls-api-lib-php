@@ -1,5 +1,6 @@
 # rls-api (PHP Implementation)
 [![Build Status](https://travis-ci.org/CraigChilds94/rls-api-lib-php.svg?branch=master)](https://travis-ci.org/CraigChilds94/rls-api-lib-php)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d144189b50e742faa1a864ca3c222050)](https://www.codacy.com/app/craigchilds94/rls-api-lib-php?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CraigChilds94/rls-api-lib-php&amp;utm_campaign=Badge_Grade)
 
 This is the un-official PHP client library for the RocketLeagueStats API.
 
@@ -56,7 +57,7 @@ RLS_API_KEY="rls_api_key_here"
 
 And then you will not need to pass it in the constructor of the `RocketLeagueStats\Stats` class. Here is an example batch player request without passing the api key:
 
-````php
+```php
 use RocketLeagueStats\Stats as Api;
 use RocketLeagueStats\Data\Collection;
 
